@@ -12,7 +12,7 @@
   (interactive)
   (add-hook 'find-file-hook
     (lambda () (let ((file (buffer-file-name)))
-                 (when (string-match "\\.bc$" file)
+                 (when (and file (string-match "\\.bc$" file))
                    (unless (featurep 'autodisass-llvm-bitcode)
                      (require 'autodisass-llvm-bitcode))
 
